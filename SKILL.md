@@ -70,7 +70,7 @@ Define essential notation. Rebuild the method as inputs, transformations, object
 
 ### 3. Audit The Contribution
 
-Always read [top-venue-rubric.md](references/top-venue-rubric.md) for novelty, rigor, contribution, or acceptance-style discussion.
+Always read [top-venue-rubric.md](references/top-venue-rubric.md) for novelty, rigor, contribution, or acceptance-style discussion. Also read [venue-calibration.md](references/venue-calibration.md) when the venue, discipline, or paper type changes what counts as decisive evidence.
 
 For every claimed contribution, name the closest mechanism-level predecessor, the exact delta, why it could matter, the evidence that isolates it, alternative explanations, and the smallest missing test. Do not equate scale, renaming, a routine combination, or a new application with methodological novelty.
 

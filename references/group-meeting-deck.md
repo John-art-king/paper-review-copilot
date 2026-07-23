@@ -2,6 +2,20 @@
 
 Use this guide after the analytical review is stable. A strong group meeting explains the tension, mechanism, and evidence before asking the audience to accept a novelty claim.
 
+## Duration Presets
+
+Choose the smallest deck that preserves the argument. Slide counts exclude title and backup slides.
+
+| Duration | Content slides | Emphasis |
+|---:|---:|---|
+| 5 min | 4-5 | Question, mechanism, one decisive result, verdict |
+| 10 min | 7-8 | Add closest work, experiment design, and one limitation |
+| 15 min | 10-12 | Full default narrative below |
+| 20 min | 12-15 | Add deeper mechanism, ablations, and discussion |
+| 30 min | 15-18 | Add related-work map, failure analysis, and research agenda |
+
+Do not fill extra time with background. Use it to explain mechanism, inspect decisive evidence, or test the verdict.
+
 ## Default 12-15 Minute Narrative
 
 Use 10-12 content slides.
