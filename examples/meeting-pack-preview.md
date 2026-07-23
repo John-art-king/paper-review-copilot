@@ -25,10 +25,10 @@ Chinese · field specialists · 15 minutes · meeting pack · reviewer-critical
 
 ## Novelty Delta
 
-**Closest predecessor:** static evidence pruning before generation.  
-**Exact delta:** evidence is reselected after each reasoning state update.  
-**Why it may matter:** later reasoning steps can recover evidence that an input-only selector would discard.  
-**Missing decisive test:** compare static and dynamic routing with identical selector capacity, supervision, and retrieval calls.
+- **Closest predecessor:** static evidence pruning before generation.
+- **Exact delta:** evidence is reselected after each reasoning state update.
+- **Why it may matter:** later reasoning steps can recover evidence that an input-only selector would discard.
+- **Missing decisive test:** compare static and dynamic routing with identical selector capacity, supervision, and retrieval calls.
 
 ## Three Claim-Style Slides
 
@@ -38,13 +38,13 @@ Chinese · field specialists · 15 minutes · meeting pack · reviewer-critical
 
 ## Advisor-Style Question
 
-**Question:** How do you know the gain comes from dynamic routing rather than extra supervision?  
-**Short answer:** We do not know from the reported ablation.  
-**Status:** unresolved.  
-**What would change the answer:** a matched-supervision static selector and a routing-only intervention.
+- **Question:** How do you know the gain comes from dynamic routing rather than extra supervision?
+- **Short answer:** We do not know from the reported ablation.
+- **Status:** unresolved.
+- **What would change the answer:** a matched-supervision static selector and a routing-only intervention.
 
 ## Follow-Up Idea
 
-**Hypothesis:** dynamic evidence recovery helps only when supporting facts become identifiable after an intermediate reasoning step.  
-**Decisive experiment:** stratify examples by whether later-hop evidence is lexically recoverable from the initial query, then compare matched static and dynamic selectors.  
-**Falsification:** no interaction between recoverability stratum and routing strategy.
+- **Hypothesis:** dynamic evidence recovery helps only when supporting facts become identifiable after an intermediate reasoning step.
+- **Decisive experiment:** stratify examples by whether later-hop evidence is lexically recoverable from the initial query, then compare matched static and dynamic selectors.
+- **Falsification:** no interaction between recoverability stratum and routing strategy.
