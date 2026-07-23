@@ -1,22 +1,47 @@
 ---
 name: group-meeting-paper-review
-description: Turn top-tier conference and journal papers into evidence-grounded group-meeting narratives. Use for paper reading, novelty audits, reviewer-style critique, related-work comparison, speaker notes, anticipated questions, and testable follow-up ideas.
+description: Turn conference and journal papers, PDFs, DOI/arXiv links, supplements, and code repositories into evidence-grounded research group-meeting packages. Use for paper triage, deep reading, novelty and rigor audits, mechanism-level related-work comparison, bilingual slide outlines, timed speaker notes, advisor-style Q&A rehearsal, and falsifiable follow-up research ideas.
 ---
 
-# Top-Tier Group Meeting Paper Review
+# Research Group Meeting Paper Review
 
-Turn a paper from a top conference or journal into a defensible group-meeting narrative. Do not produce a polished abstract paraphrase. Separate author claims, direct evidence, reviewer inference, and unresolved uncertainty.
+Turn a research paper into a defensible group-meeting argument. Do not produce a polished abstract paraphrase. Separate what the authors claim, what the artifacts establish, what the reviewer infers, and what remains unknown.
+
+## Configure The Review
+
+Infer missing settings without blocking progress. State the chosen profile in one compact line.
+
+| Setting | Options | Default |
+|---|---|---|
+| Language | Chinese, English, or bilingual | User's language |
+| Audience | Mixed lab, field specialists, or newcomers | Technical graduate audience |
+| Duration | 5, 10, 15, 20, or 30 minutes | 15 minutes |
+| Depth | Triage, deep review, comparison, meeting pack, or rehearsal | Lightest mode that satisfies the request |
+| Stance | Explanatory, reviewer-critical, or research-opportunity | Reviewer-critical |
+
+For bilingual delivery, keep slide titles and key terms bilingual but write speaker notes in the user's primary language. Preserve canonical English method, dataset, and metric names.
 
 ## Default Delivery
 
-For a supplied paper, PDF, DOI, title, or repository, infer the lightest adequate mode:
+For a supplied paper, PDF, DOI, title, supplement, or repository, select one mode:
 
 - **Paper triage**: research question, central mechanism, evidence quality, and one reason to read or skip.
 - **Deep review**: reconstruct the argument, audit the top-tier contribution, inspect experiments, and identify limitations.
 - **Comparison review**: compare papers through a shared mechanism-level taxonomy.
-- **Presentation delivery**: a timed 12-15 minute narrative with 10-12 content slides, speaker notes, and anticipated questions.
+- **Meeting pack**: executive verdict, evidence ledger, timed deck, speaker notes, discussion prompts, and follow-up ideas.
+- **Rehearsal**: advisor-style questions, concise defended answers, confidence labels, and evidence that would change the answer.
 
-Unless the user specifies otherwise, use the user's language, a technical graduate audience, a 12-15 minute slot, and 10-12 content slides.
+If the user asks to prepare a presentation, slides, or a group-meeting report, deliver a meeting pack rather than a summary.
+
+## Establish Source Completeness
+
+Inventory available sources before judging the work: main paper, appendix or supplement, official code and configs, project page, and closest prior work. Use primary sources for novelty and priority claims.
+
+Distinguish three access levels:
+
+- **Full evidence**: main paper plus relevant supplementary or official artifacts. Support a deep verdict.
+- **Paper only**: support method and experiment review, but qualify reproducibility claims.
+- **Abstract or metadata only**: support triage only. Do not issue a definitive novelty or rigor verdict.
 
 ## Evidence Discipline
 
@@ -27,7 +52,7 @@ Maintain an evidence ledger for every material conclusion:
 3. status: `[Author claim]`, `[Evidence]`, `[Inference]`, `[Proposal]`, or `[Unverified]`;
 4. confidence: high, medium, or low.
 
-Never invent page numbers, quotes, baselines, datasets, or results. Abstract-only access supports triage, not a definitive novelty or rigor verdict.
+Never invent page numbers, quotes, baselines, datasets, or results. Prefer an explicit unknown over a plausible completion. Do not turn rubric scores into an acceptance probability.
 
 ## Workflow
 
@@ -43,7 +68,7 @@ Explain:
 
 Define essential notation. Rebuild the method as inputs, transformations, objectives, outputs, and causal rationale. A component list is not a method explanation.
 
-### 3. Audit Top-Tier Contribution
+### 3. Audit The Contribution
 
 Always read [top-venue-rubric.md](references/top-venue-rubric.md) for novelty, rigor, contribution, or acceptance-style discussion.
 
@@ -71,6 +96,12 @@ Read [group-meeting-deck.md](references/group-meeting-deck.md) for reading notes
 
 Lead with the field-level tension, establish the closest prior work before claiming novelty, spend most time on mechanism and evidence, then end with a clear verdict, limitations, and next research question.
 
+### 8. Assemble The Delivery
+
+Always read [deliverable-contract.md](references/deliverable-contract.md) for a meeting pack or deep review. Fill only sections supported by the requested mode and available evidence. Use the templates in `assets/` when the user requests reusable Markdown artifacts.
+
+For rehearsal, skeptical advisor questions, or discussion preparation, read [qa-rehearsal.md](references/qa-rehearsal.md). Answer from the evidence ledger, not from rhetorical confidence.
+
 ## Quality Gate
 
 Before delivery, verify that:
@@ -82,4 +113,6 @@ Before delivery, verify that:
 - experimental weaknesses are connected to the conclusion they weaken;
 - each research idea has a falsification condition;
 - slide titles state claims, not topics;
-- the narrative fits the allocated time and leaves the audience with a verdict rather than a generic summary.
+- the narrative fits the allocated time and leaves the audience with a verdict rather than a generic summary;
+- every anticipated answer is marked supported, inferred, or unresolved;
+- the final package distinguishes a paper limitation from a presentation omission.
