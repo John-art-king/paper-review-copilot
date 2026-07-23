@@ -1,4 +1,4 @@
 interface:
-  display_name: "Group Meeting Paper Review"
-  short_description: "Evidence-based paper review and presentation design"
-  default_prompt: "Use $group-meeting-paper-review to analyze this paper, audit its novelty with evidence, and prepare a Chinese group-meeting report."
+  display_name: "Top-Tier Paper Meeting Copilot"
+  short_description: "Reviewer-grade paper analysis and group-meeting presentation design"
+  default_prompt: "Use $group-meeting-paper-review to turn this top-tier paper into an evidence-grounded Chinese group-meeting presentation, including novelty audit, critique, and research ideas."
