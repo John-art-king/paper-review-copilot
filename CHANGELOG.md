@@ -1,5 +1,21 @@
 # Changelog
 
+## [0.3.0] - 2026-07-23
+
+### Added
+
+- Configurable language, audience, duration, depth, and presentation stance.
+- Complete meeting-pack delivery contract and reusable Markdown templates.
+- Advisor-style Q&A rehearsal with evidence-grounded short answers.
+- Venue and field calibration for empirical ML, systems, theory, applications, benchmarks, and replication work.
+- Duration presets for 5-30 minute presentations.
+- Permission-safe synthetic output preview and full Chinese README.
+
+### Changed
+
+- Rewrote the GitHub README around concrete deliverables, quick-start prompts, evidence standards, and project roadmap.
+- Expanded the default presentation mode into a complete meeting pack with an evidence ledger, timed script, Q&A, and research ideas.
+
 ## [0.2.0] - 2026-07-23
 
 ### Added

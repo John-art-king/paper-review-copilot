@@ -1,52 +1,192 @@
 # Paper Review Copilot
 
-> Turn top-tier papers into defensible group-meeting narratives and testable next ideas.
+**Stop summarizing papers. Start defending a research judgment.**
 
-Paper Review Copilot is a Codex skill for researchers who present and discuss papers from leading conferences and journals. It turns a PDF into a reviewer-grade argument: what question matters, what is genuinely new, what the experiments establish, where the evidence stops, and what a lab should test next.
+[![Codex Skill](https://img.shields.io/badge/Codex-Skill-111827?style=flat-square)](https://github.com/openai/codex)
+[![Latest release](https://img.shields.io/github/v/release/John-art-king/paper-review-copilot?style=flat-square)](https://github.com/John-art-king/paper-review-copilot/releases)
+[![License: MIT](https://img.shields.io/badge/License-MIT-0f766e?style=flat-square)](LICENSE)
+[![GitHub stars](https://img.shields.io/github/stars/John-art-king/paper-review-copilot?style=flat-square)](https://github.com/John-art-king/paper-review-copilot/stargazers)
 
-Built for Chinese and international group meetings. The goal is not "summarize this paper". The goal is a clear, evidence-located narrative that survives questions from an advisor or a critical audience.
+[English](README.md) | [简体中文](README.zh-CN.md)
 
-## What It Delivers
+Paper Review Copilot is an evidence-grounded Codex skill for research group meetings. Give it a paper, PDF, DOI/arXiv link, supplement, or repository. It returns a meeting-ready argument: what problem matters, what is actually new, which evidence supports the mechanism, where the claims overreach, how to present the work, and what your lab should test next.
 
-- **Fast triage**: decide whether a paper merits deep reading.
-- **Deep review**: reconstruct the research tension, causal mechanism, evidence, limitations, and bottom-line verdict.
-- **Top-tier contribution audit**: test problem importance, mechanism-level novelty, technical depth, evidence strength, reproducibility, and field impact.
-- **Reviewer-style experiment critique**: inspect baseline fairness, ablations, uncertainty, failure cases, and claims that exceed their evidence.
-- **Related-work comparison**: compare papers through mechanisms, assumptions, regimes, and evidence rather than disconnected headline metrics.
-- **Group-meeting deck plan**: produce a 10-12 slide, 12-15 minute narrative with claim-style titles, speaker notes, transitions, and anticipated questions.
-- **Research idea cards**: convert verified gaps into falsifiable hypotheses and decisive experiments.
+It is designed for top-conference and journal discussions where "summarize the paper" is not enough.
 
-## The Standard
+## One Paper In, A Complete Meeting Pack Out
 
-Every material conclusion records a source locator and is labeled as an author claim, direct evidence, reviewer inference, proposal, or unverified. The skill names the closest comparison target before judging novelty and keeps uncertainty visible instead of filling gaps with confident prose.
+| Deliverable | What you get |
+|---|---|
+| Executive verdict | Research question, core insight, mechanism, strongest evidence, largest uncertainty, bottom line |
+| Claim-evidence ledger | Every important conclusion linked to a section, page, figure, table, equation, appendix, or artifact |
+| Novelty audit | Closest mechanism-level predecessor, exact delta, alternative explanation, missing decisive test |
+| Rigor review | Baseline fairness, budget parity, ablations, uncertainty, failure modes, generality, reproducibility |
+| Timed slide script | Claim-style slide titles, primary visual, speaker takeaway, transition, and cumulative time |
+| Advisor Q&A | Skeptical questions, 20-40 second answers, confidence labels, and evidence that would change the answer |
+| Research idea cards | Evidence-backed gaps turned into falsifiable hypotheses and decisive experiments |
 
-## Included References
+## Why This Is Not Another Paper Summarizer
 
-- [`SKILL.md`](SKILL.md): end-to-end operating workflow.
-- [`references/top-venue-rubric.md`](references/top-venue-rubric.md): reviewer-grade contribution and evidence standard.
-- [`references/related-work-comparison.md`](references/related-work-comparison.md): mechanism-level comparison matrices and priority checks.
-- [`references/group-meeting-deck.md`](references/group-meeting-deck.md): timed presentation narrative, slide template, and discussion preparation.
-- [`references/research-idea-cards.md`](references/research-idea-cards.md): falsifiable follow-up research design.
-- [`agents/openai.yaml`](agents/openai.yaml): agent metadata for skill discovery.
+| Typical summary | Paper Review Copilot |
+|---|---|
+| Rephrases the abstract | Reconstructs the paper's causal argument |
+| Repeats contribution claims | Tests novelty against the closest mechanism-level work |
+| Lists benchmark numbers | Checks whether protocols, compute, data, and tuning are comparable |
+| Hides missing evidence | Marks claims as author claim, evidence, inference, proposal, or unverified |
+| Produces topic-style slides | Produces timed claim-style slides with transitions and speaker takeaways |
+| Suggests generic future work | Requires a falsifiable hypothesis and a result that would reject it |
 
-## Install As A Codex Skill
+## How It Works
 
-Copy this repository into your local skills directory using the folder name `group-meeting-paper-review`:
-
-```text
-$CODEX_HOME/skills/group-meeting-paper-review/
+```mermaid
+flowchart LR
+    A[Paper and artifacts] --> B[Source completeness]
+    B --> C[Argument reconstruction]
+    C --> D[Novelty and rigor audit]
+    D --> E[Claim-evidence ledger]
+    E --> F[Timed meeting narrative]
+    E --> G[Advisor Q&A]
+    E --> H[Testable research ideas]
 ```
 
-Then ask Codex to review a supplied paper, compare related work, prepare a group-meeting brief, audit the paper like a reviewer, or produce a presentation plan.
+The core rule is simple: author claims, direct evidence, reviewer inference, and unresolved uncertainty must never be blended together.
 
-## Recommended Review Discipline
+## Quick Start
 
-Provide the paper PDF or an official paper link when possible. For strong novelty conclusions, include the closest prior work and official artifacts. When evidence is incomplete, the skill is expected to say so explicitly rather than inventing a result.
+### 1. Install
 
-## Scope
+macOS / Linux:
 
-This repository contains the review workflow and reference checklists. It does not bundle papers, datasets, model weights, or proprietary research artifacts.
+```bash
+git clone https://github.com/John-art-king/paper-review-copilot.git ~/.codex/skills/group-meeting-paper-review
+```
+
+Windows PowerShell:
+
+```powershell
+git clone https://github.com/John-art-king/paper-review-copilot.git "$env:USERPROFILE\.codex\skills\group-meeting-paper-review"
+```
+
+### 2. Attach A Paper
+
+Provide a PDF or an official paper link. Add the supplement, code repository, and closest prior work when you need a strong novelty or reproducibility verdict.
+
+### 3. Invoke The Skill
+
+```text
+Use $group-meeting-paper-review to turn this paper into a 15-minute Chinese
+group-meeting pack for a specialist audience. Focus on novelty, experimental
+fairness, speaker notes, advisor questions, and two testable follow-up ideas.
+```
+
+The skill infers omitted settings, states the chosen review profile, and proceeds without forcing a questionnaire.
+
+## Five Review Modes
+
+| Mode | Best for | Core output |
+|---|---|---|
+| Triage | Deciding whether to read | Question, mechanism, evidence quality, read/skip verdict |
+| Deep review | Understanding one paper | Argument map, evidence ledger, novelty and rigor audit |
+| Comparison | Positioning multiple papers | Shared taxonomy, normalized comparison, unresolved disagreement |
+| Meeting pack | Presenting to the lab | Full review plus timed slide script, Q&A, and research ideas |
+| Rehearsal | Preparing for hard questions | Advisor-style challenge ladder and defended short answers |
+
+## Configure The Presentation
+
+You can set the review in natural language:
+
+- **Language:** Chinese, English, or bilingual
+- **Audience:** mixed lab, field specialists, or newcomers
+- **Duration:** 5, 10, 15, 20, or 30 minutes
+- **Stance:** explanatory, reviewer-critical, or research-opportunity
+- **Depth:** triage, deep review, comparison, meeting pack, or rehearsal
+
+For bilingual delivery, slide titles and key terms are bilingual while speaker notes stay in the presenter's primary language.
+
+## Prompt Recipes
+
+**Fast paper triage**
+
+```text
+Use $group-meeting-paper-review in triage mode. Tell me whether this paper
+deserves a deep read, and cite the evidence behind the verdict.
+```
+
+**Top-venue novelty audit**
+
+```text
+Use $group-meeting-paper-review to identify the closest mechanism-level prior
+work, isolate the exact technical delta, and name the smallest experiment that
+could overturn the novelty claim.
+```
+
+**Bilingual group meeting**
+
+```text
+Use $group-meeting-paper-review to prepare a 20-minute bilingual meeting pack.
+Keep technical terms in English, write Chinese speaker notes, and include
+claim-style slide titles, transitions, and cumulative timing.
+```
+
+**Advisor rehearsal**
+
+```text
+Use $group-meeting-paper-review in rehearsal mode. Challenge the central novelty
+claim and strongest result, then give evidence-grounded 30-second answers.
+```
+
+## Output Preview
+
+The repository includes a compact [synthetic meeting-pack preview](examples/meeting-pack-preview.md). It demonstrates the expected judgment, evidence labels, novelty delta, slide titles, advisor question, and falsifiable idea without pretending that fictional claims are real research findings.
+
+## Evidence Standard
+
+The skill uses three source-completeness levels:
+
+- **Full evidence:** paper plus relevant supplement or official artifacts; supports a deep verdict.
+- **Paper only:** supports method and experiment review; reproducibility claims remain qualified.
+- **Abstract or metadata only:** supports triage only; no definitive novelty or rigor verdict.
+
+It never invents locators, baselines, datasets, quotes, or results. It does not convert rubric scores into an acceptance probability. When the venue or discipline matters, it calibrates the review for empirical ML, systems, theory, scientific applications, benchmarks, or replication work.
+
+## Repository Map
+
+```text
+paper-review-copilot/
+|-- SKILL.md                         # Core workflow and routing
+|-- agents/openai.yaml               # Codex discovery metadata
+|-- assets/                          # Reusable review and slide templates
+|-- examples/                        # Representative output preview
+`-- references/
+    |-- deliverable-contract.md      # Complete meeting-pack contract
+    |-- group-meeting-deck.md        # Duration-aware slide narrative
+    |-- qa-rehearsal.md              # Advisor-style challenge protocol
+    |-- related-work-comparison.md   # Mechanism-level comparison
+    |-- research-idea-cards.md       # Falsifiable follow-up design
+    |-- top-venue-rubric.md          # Contribution and rigor audit
+    `-- venue-calibration.md         # Field-appropriate evidence standards
+```
+
+## Scope And Boundaries
+
+This skill supports research reading, critique, discussion, and presentation design. It does not replace domain experts, peer review, or source verification. It does not bundle papers, datasets, model weights, or proprietary artifacts.
+
+Strong novelty conclusions require the closest prior work. Strong reproducibility conclusions require implementation artifacts. When those sources are missing, the skill says so.
+
+## Roadmap
+
+- Public, permission-safe meeting-pack case studies across several disciplines
+- Field profiles for computer vision, NLP, systems, robotics, and scientific ML
+- A reusable PowerPoint theme and presentation artifact workflow
+- Regression evaluations for citation discipline, overclaim detection, and Q&A quality
+- Community-contributed venue and lab presentation profiles
+
+## Contributing
+
+Useful contributions include evidence-backed case studies, field-specific evaluation checks, difficult papers that expose workflow failures, and improvements to the presentation templates. Please keep examples permission-safe and label synthetic or incomplete evidence explicitly.
+
+If this skill improves a group meeting, star the repository and share the prompt or paper type that worked. That feedback is more useful than generic feature requests.
 
 ## License
 
-Released under the MIT License. See [`LICENSE`](LICENSE).
+MIT. See [LICENSE](LICENSE).
